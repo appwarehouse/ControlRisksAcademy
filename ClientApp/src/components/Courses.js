@@ -29,7 +29,7 @@ function Courses() {
     fetchCourseData().catch(console.error);
   }, []);
 
-  // handle click event of the Add button
+  //Handle Addition
   const handleSelectionClick = () => {
     setCourseList([...courseList, { id: "", name: "", active: true }]);
   };
@@ -42,9 +42,17 @@ function Courses() {
           <h5>Course List</h5>
           <p>Select a course </p>
           <ListGroup>
+            <ListGroupItem
+              className="active"
+              tag="a"
+              onClick={() => setSelectedCourse(null)}
+              action
+            >
+              New Course
+            </ListGroupItem>
             {courseList.map((x, i) => (
               <ListGroupItem
-                {...(selectedCourse === x.id ? "active" : "")}
+                className={selectedCourse === x.id ? "active" : ""}
                 tag="a"
                 onClick={() => setSelectedCourse(x.id)}
                 action

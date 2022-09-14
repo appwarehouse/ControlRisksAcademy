@@ -21,7 +21,7 @@ namespace ControlRisksAcademy.Services
         {
             try
             {
-                var course = await _context.Courses.AnyAsync(x => x.Name.ToLower() != model.Name.ToLower());
+                var course = await _context.Courses.AnyAsync(x => x.Name.ToLower() == model.Name.ToLower());
 
                 if (!course)
                 {
@@ -68,7 +68,7 @@ namespace ControlRisksAcademy.Services
 
         public async Task<Courses> GetByIdAsync(int id)
         {
-            return await _context.Courses.SingleOrDefaultAsync(x => x.Id == id);
+            return await _context.Courses.Include(x => x.Classroom).SingleOrDefaultAsync(x => x.Id == id);
         }
 
         public async Task<List<Courses>> ListAsync()

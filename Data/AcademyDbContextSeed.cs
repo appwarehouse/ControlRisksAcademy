@@ -32,7 +32,7 @@ namespace ControlRisksAcademy.Data
                 {
                     Name = "Jacob",
                     Surname = "Muchengeti",
-                    DoB = DateTime.Parse("1 January 2000"),
+                    Dob = DateTime.Parse("1 January 2000"),
                     EmailAddress = "jacob@mobileapp.co.za",
                     Gender = 'M',
                     PhoneNumber = "0718592919",
@@ -42,7 +42,7 @@ namespace ControlRisksAcademy.Data
                 {
                     Name = "Mark",
                     Surname = "Robins",
-                    DoB = DateTime.Parse("1 September 1999"),
+                    Dob = DateTime.Parse("1 September 1999"),
                     EmailAddress = "mark@mobileapp.co.za",
                     Gender = 'M',
                     PhoneNumber = "0718002900",
@@ -52,7 +52,7 @@ namespace ControlRisksAcademy.Data
                 {
                     Name = "Karen",
                     Surname = "Dube",
-                    DoB = DateTime.Parse("1 December 2001"),
+                    Dob = DateTime.Parse("1 December 2001"),
                     EmailAddress = "karen@mobileapp.co.za",
                     Gender = 'F',
                     PhoneNumber = "0718592919",
@@ -142,15 +142,7 @@ namespace ControlRisksAcademy.Data
                 new() { Name = "B05", Active = true },
                 new() { Name = "B06", Active = true },
                 new() { Name = "B07", Active = true },
-                new() { Name = "B08", Active = true },
-                new() { Name = "C01", Active = true },
-                new() { Name = "C02", Active = true },
-                new() { Name = "C03", Active = true },
-                new() { Name = "C04", Active = true },
-                new() { Name = "C05", Active = true },
-                new() { Name = "C06", Active = true },
-                new() { Name = "C07", Active = true },
-                new() { Name = "C08", Active = true }
+                new() { Name = "B08", Active = true }
             };
 
             try

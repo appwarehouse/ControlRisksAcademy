@@ -27,7 +27,6 @@ function Classrooms() {
   // handle input change
   const handleInputChange = (e, index) => {
     const { name, value } = e.target;
-    console.log(e.target);
     const list = [...classroomList];
     list[index][name] = value;
     setClassroomList(list);
@@ -54,7 +53,6 @@ function Classrooms() {
 
   // handle click event of the Save button
   const handleSaveClick = async (index) => {
-    console.log(classroomList[index]);
     const { name, active } = classroomList[index];
 
     const result = await classroomService.createClassroom({
@@ -106,7 +104,7 @@ function Classrooms() {
                 <input
                   className="form-control"
                   name="name"
-                  placeholder="Enter a title"
+                  placeholder="Enter a classroom name"
                   value={x.name}
                   onChange={(e) => handleInputChange(e, i)}
                 />

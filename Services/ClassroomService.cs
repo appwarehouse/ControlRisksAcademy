@@ -22,7 +22,7 @@ namespace ControlRisksAcademy.Models
         {
             try
             {
-                var classroom = await _context.Classrooms.AnyAsync(x => x.Name == model.Name);
+                var classroom = await _context.Classrooms.AnyAsync(x => x.Name.ToLower() == model.Name.ToLower());
 
                 if (!classroom)
                 {

@@ -7,28 +7,41 @@ import {
   Badge,
   Button,
   ButtonGroup,
+  ModalHeader,
+  ModalBody,
+  Modal,
+  ModalFooter,
 } from "reactstrap";
 import studentService from "./../services/studentService";
 import Moment from "react-moment";
 import { toast } from "react-toastify";
 import { useHistory } from "react-router";
+import StudentDetails from "./common/StudentDetails";
 
 const Home = () => {
   const history = useHistory();
   const [studentData, setStudentData] = useState([]);
+  const [selectedStudent, setSelectedStudent] = useState(null);
+  const [modelOpen, setModelOpen] = useState(false);
 
   //on load
   useEffect(() => {
-    const fetchStudentData = async () => {
-      const students = await studentService.list();
-      setStudentData(students);
-    };
     fetchStudentData().catch(console.error);
   }, []);
-
+  const fetchStudentData = async () => {
+    const students = await studentService.list();
+    setStudentData(students);
+  };
   //edit a student details
   const handleStudentEdit = (id) => {
-    history.push(`/student-details/${id}`);
+    //history.push(`/student-details/${id}`);
+    setSelectedStudent(id);
+    setModelOpen(true);
+  };
+
+  const modalToggle = () => {
+    fetchStudentData();
+    setModelOpen(false);
   };
 
   //update the active status of a student
@@ -50,17 +63,15 @@ const Home = () => {
   };
 
   //ToDo: Handle the Enrollment of a student
-  const handleEnrollment = (id) => {};
+  const handleEnrollment = (id) => {
+    toast.info("Future feature to enroll student in a set of courses.");
+  };
   return (
     <Container>
       <Row>
         <h1>Welcome to The Academy</h1>
       </Row>
-      <Row>
-        <Col>.col</Col>
-        <Col>.col</Col>
-        <Col>.col</Col>
-      </Row>
+      <Row></Row>
       <Row>
         <Table striped bordered>
           <thead>
@@ -89,9 +100,9 @@ const Home = () => {
                     <td>{x.surname}</td>
                     <td>{x.gender}</td>
                     <td>
-                      <Moment format="DD-MMM-YYYY">{x.doB}</Moment> (
+                      <Moment format="DD-MMM-YYYY">{x.dob}</Moment> (
                       <Moment fromNow ago>
-                        {x.doB}
+                        {x.dob}
                       </Moment>
                       )
                     </td>
@@ -137,6 +148,17 @@ const Home = () => {
           </tbody>
         </Table>
       </Row>
+
+      <Modal isOpen={modelOpen} toggle={modalToggle}>
+        <ModalBody>
+          <StudentDetails studentId={selectedStudent}></StudentDetails>
+        </ModalBody>
+        <ModalFooter>
+          <Button size="sm" color="danger" onClick={modalToggle}>
+            Close
+          </Button>
+        </ModalFooter>
+      </Modal>
     </Container>
   );
 };

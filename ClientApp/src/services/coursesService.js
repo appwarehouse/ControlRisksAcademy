@@ -14,11 +14,33 @@ export async function details(id) {
 }
 
 export async function createCourse(course) {
-  return await http.post(`${apiEndpoint}/new`, course);
+  let response = null;
+  response = await http
+    .post(`${apiEndpoint}/new`, course)
+    .catch((error) => (response = error));
+
+  if (response.status === undefined) {
+    return { success: false, data: null, message: response.response.data };
+  }
+
+  if (response.status === 200) {
+    return { success: true, data: response.data, message: "" };
+  }
 }
 
 export async function updateCourse(id, course) {
-  return await http.put(`${apiEndpoint}/update/${id}`, course);
+  let response = null;
+  response = await http
+    .put(`${apiEndpoint}/update/${id}`, course)
+    .catch((error) => (response = error));
+
+  if (response.status === undefined) {
+    return { success: false, data: null, message: response.response.data };
+  }
+
+  if (response.status === 204) {
+    return { success: true, data: response.data, message: "" };
+  }
 }
 
 export async function deactivateCourse(id) {

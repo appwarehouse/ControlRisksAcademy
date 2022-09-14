@@ -13,7 +13,6 @@ const LoginForm = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const result = await auth.login(email, password);
-    console.log("Login Result", result);
     if (result !== undefined) {
       if (result.isAuthenticated) {
         window.location.reload(false);

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ControlRisksAcademy.Models
 {
-    [Serializable]
+   
     public class Classrooms
     {
         [Required]

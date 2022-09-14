@@ -21,7 +21,6 @@ export class Counter extends Component {
 
   something = async () => {
     var f = await list();
-    console.log(f);
   };
 
   anotherSomething = () => {

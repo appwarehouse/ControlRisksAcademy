@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -26,7 +27,8 @@ namespace ControlRisksAcademy.Models
         public string EmailAddress { get; set; }
 
         public char Gender { get; set; }
-        public DateTime DoB { get; set; }
+
+        public DateTime Dob { get; set; }
 
         [MaxLength(20)]
         public string PhoneNumber { get; set; }

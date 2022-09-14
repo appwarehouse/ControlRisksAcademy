@@ -1,5 +1,6 @@
 ﻿using ControlRisksAcademy.Models;
 using ControlRisksAcademy.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -11,6 +12,7 @@ using System.Threading.Tasks;
 
 namespace ControlRisksAcademy.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ClassroomController : ControllerBase

@@ -10,7 +10,7 @@ import LoginForm from "./components/LoginForm";
 import config from "./config.json";
 import auth from "./services/authService";
 import { ToastContainer } from "react-toastify";
-import StudentDetails from "./components/StudentDetails";
+import StudentDetails from "./components/common/StudentDetails";
 import Classrooms from "./components/Classrooms";
 import Courses from "./components/Courses";
 
@@ -19,7 +19,6 @@ export default class App extends Component {
   state = {};
   componentDidMount() {
     const user = auth.getCurrentUser();
-    console.log("User", user);
     this.setState({ user });
   }
 

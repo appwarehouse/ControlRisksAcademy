@@ -83,7 +83,7 @@ namespace ControlRisksAcademy.Services
                     student.Active = model.Active;
                     student.Name = model.Name;
                     student.Gender = model.Gender;
-                    student.DoB = model.DoB;
+                    student.Dob = model.Dob;
                     student.EmailAddress = model.EmailAddress;
                     student.PhoneNumber = model.PhoneNumber;
                     student.StudentNumber = model.StudentNumber;

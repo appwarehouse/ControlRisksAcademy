@@ -9,7 +9,8 @@ export async function list() {
 }
 
 export async function details(id) {
-  return await http.get(`${apiEndpoint}/details/${id}`);
+  const { data } = await http.get(`${apiEndpoint}/details/${id}`);
+  return data;
 }
 
 export async function createStudent(student) {
@@ -27,8 +28,19 @@ export async function createStudent(student) {
   }
 }
 
-export async function updateStudent(id, classroom) {
-  return await http.put(`${apiEndpoint}/update/${id}`, classroom);
+export async function updateStudent(id, student) {
+  let response = null;
+  response = await http
+    .put(`${apiEndpoint}/update/${id}`, student)
+    .catch((error) => (response = error));
+
+  if (response.status === undefined) {
+    return { success: false, data: null, message: response.response.data };
+  }
+
+  if (response.status === 204) {
+    return { success: true, data: response.data, message: "" };
+  }
 }
 
 export async function deactivateStudent(id) {
