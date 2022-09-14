@@ -1,0 +1,61 @@
+{
+  "name": "controlrisksacademy",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@sentry/react": "^7.12.1",
+    "@sentry/tracing": "^7.12.1",
+    "axios": "^0.27.2",
+    "bootstrap": "~4.6.1",
+    "eslint": "^8.23.1",
+    "joi-browser": "^13.4.0",
+    "jquery": "~3.6.0",
+    "jwt-decode": "^3.1.2",
+    "merge": "^2.1.1",
+    "moment": "^2.29.4",
+    "oidc-client": "~1.11.5",
+    "prop-types": "^15.8.1",
+    "react": "~16.14.0",
+    "react-dom": "~16.14.0",
+    "react-moment": "^1.1.2",
+    "react-router": "~5.2.1",
+    "react-router-bootstrap": "^0.25.0",
+    "react-router-dom": "~5.3.0",
+    "react-toastify": "^9.0.8",
+    "reactstrap": "~8.10.1",
+    "rimraf": "^3.0.2"
+  },
+  "devDependencies": {
+    "ajv": "^6.9.1",
+    "cross-env": "^5.2.0",
+    "eslint-config-react-app": "^5.2.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react-hooks": "^5.0.0-next-e6a062bd2-20220913",
+    "nan": "^2.14.1",
+    "react-scripts": "^5.0.0",
+    "typescript": "^3.7.5"
+  },
+  "scripts": {
+    "start": "rimraf ./build && react-scripts start",
+    "build": "react-scripts build",
+    "test": "cross-env CI=true react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "lint": "eslint ./src/"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "resolutions": {
+    "url-parse": ">=1.5.0",
+    "lodash": ">=4.17.21"
+  }
+}
