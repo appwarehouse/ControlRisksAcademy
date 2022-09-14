@@ -53,8 +53,9 @@ const StudentDetails = () => {
     setStudentDetails(studentData);
     setErrors(errorData);
   };
+
   useEffect(() => {
-    console.log("ships", id);
+    console.log("ships");
   }, []);
 
   const validateProperty = (event) => {
